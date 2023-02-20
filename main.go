@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	"github.com/Johannekh/funtemps/conv"
 )
 
 // Definerer flag-variablene i hoved-"scope"
@@ -67,10 +69,68 @@ func main() {
 	fmt.Println(isFlagPassed("out"))
 
 	// Eksempel på enkel logikk
+	if out == "K" && isFlagPassed("C") {
+		Kevin := conv.CelsiusToKelvin(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees celsius is %.2f degrees kevin.\n", fahr, Kevin)
+		} else {
+			fmt.Printf("%.3f degrees celsius is %.2f degrees kevin.\n", fahr, Kevin)
+		}
+	}
+
+	if out == "K" && isFlagPassed("C") {
+		Kevin := conv.CelsiusToKelvin(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees celsius is %.2f degrees kevin.\n", fahr, Kevin)
+		} else {
+			fmt.Printf("%.3f degrees celsius is %.2f degrees kevin.\n", fahr, Kevin)
+		}
+	}
+
+	if out == "C" && isFlagPassed("K") {
+		Celsius := conv.KelvinToCelsius(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees kevin is %.2f degrees celsius.\n", fahr, Celsius)
+		} else {
+			fmt.Printf("%.3f degrees kevin is %.2f degrees celsius.\n", fahr, Celsius)
+		}
+	}
+	if out == "F" && isFlagPassed("C") {
+		Farhrenheit := conv.CelsiusToFarhrenheit(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees celsius is %.2f degrees Farhrenheit.\n", fahr, Farhrenheit)
+		} else {
+			fmt.Printf("%.3f degrees celsius is %.2f degrees Farhrenheit.\n", fahr, Farhrenheit)
+		}
+	}
+
+	if out == "F" && isFlagPassed("K") {
+		Farhrenheit := conv.KelvinToFarhrenheit(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees kevin is %.2f degrees Farhrenheit.\n", fahr, Farhrenheit)
+		} else {
+			fmt.Printf("%.3f degrees kevin is %.2f degrees Farhrenheit.\n", fahr, Farhrenheit)
+		}
+	}
+	if out == "K" && isFlagPassed("F") {
+		Kevin := conv.FarhenheitToKelvin(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees Farhrenheit is %.2f degrees Kevin.\n", fahr, Kevin)
+		} else {
+			fmt.Printf("%.3f degrees Farhrenheit is %.2f degrees Kevin.\n", fahr, Kevin)
+		}
+
+	}
+
 	if out == "C" && isFlagPassed("F") {
 		// Kalle opp funksjonen FahrenheitToCelsius(fahr), som da
 		// skal returnere °C
-		fmt.Println("0°F er -17.78°C")
+		Celsius := conv.FarhenheitToCelsius(fahr)
+		if fahr == float64(int(fahr)) {
+			fmt.Printf("%.0f degrees Fahrenheit is %.2f degrees celsius\n", fahr, Celsius)
+		} else {
+			fmt.Printf("%.3f degrees Fahrenheit is %.2f degrees celsius\n", fahr, Celsius)
+		}
 	}
 
 }
